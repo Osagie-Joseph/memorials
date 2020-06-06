@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}<br/><br/>
+    <section>
+        <!--todo this is pointless we need to remove this div and put something meaningfull therein-->
+        <div class="row justify-content-center d-flex-sort-by">
+            <div class="col-md-2 col-sm-2 p-3 sort0">
+                <div class="text-right">Sort by:</div>
+            </div>
+            <div class="col-md-4 col-sm-2 p-2 sort1">
+                <select class="form-control filled" id="relationships" name="relationships">
+                    <option value="all" data-href="?relationships=all">
+                    All Memorials </option>
+                    <option value="mother_father" data-href="?relationships=mother_father">
+                    Mother or Father </option>
+                    <option value="grandmother_grandfather" data-href="?relationships=grandmother_grandfather">
+                    Grandmother or Grandfather </option>
+                    <option value="son_daughter" data-href="?relationships=son_daughter">
+                    Son or Daughter </option>
+                    <option value="sister_brother" data-href="?relationships=sister_brother">
+                    Sister or Brother </option>
+                    <option value="wife" data-href="?relationships=wife" selected="selected">
+                    Wife </option>
+                    <option value="husband" data-href="?relationships=husband">
+                    Husband </option>
+                    <option value="friend" data-href="?relationships=friend">
+                    Friend </option>
+                </select>
+            </div>
+        </div>
+    </section>
+    <section class="container " style="color: #1F0541;" >
+        <div class="row container justify-content-center">{% for card in card %}
+            <div class="card card-margin" style="width: 16rem; "> <!-- this is the dynamic one from the django backend -->
+                <img src="{{ card.thumbnail.url }}" class="card-img-top padding-img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-right">{{ card.name | capfirst }}</h5>
+                    <p class="text-right">{{ card.date | timesince }} ago</p>
+                    <p class="card-text-p">{{ card.overview | capfirst }}</p>
+                    <!--TODO you need to create this link detail view-->
+                    <a href="#" class="text-right">View memorial</a>
+                </div>
+            </div>{% endfor %}
+            <!-- this is the hard coded one -->
+            <div class="card card-margin" style="width: 16rem; ">
+                <img src="{% static 'img/sample.png' %}" class="card-img-top padding-img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-right">Michael Jackson</h5>
+                    <p class="text-right">02/02/1912-03/11/2020</p>
+                    <p class="card-text-p">Let us all gather to celebrate and honor Micheal Jackson by sharing memories of him as a terrific husband, father, son, and brother, all while being a legendary trial attorney and remarkable leader. The world has lost a true giant but Micheal has left an army touched</p>
+                    <a href="#" class="text-right">View memorial</a>
+                </div>
+            </div>
+        </div>
+    </section><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+{%endblock%}

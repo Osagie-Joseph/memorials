@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}<br/>{% load socialaccount %} {% providers_media_js %}
+    <section class="container login" style="color: #1F0541;" >
+        <h3 class="login-h3">Sign in/ Sign up</h3>
+        <div class="row mb-5">
+            <div class="col-md-6 mtop" style="background-color: #E6E0ED;">
+                <h3 class="sign-h3">Sign in</h3>
+                <form class="form-group sign-form" method="post">
+                    {% csrf_token %}
+                    <div class="form-email">
+                        <input type="text" name="username" class="form-control" placeholder="Username" required="" id="id_username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+                    </div><br/>
+                    <div class="form-pwd">
+                        <input type="password" name="password" class="form-control" required="" placeholder="Password" id="id_password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                    </div>
+                    <button type="submit" class="btn text-light btn-lg mt-5 mb-5 form-btn" style="background-color: #1F0541;" >Login</button>
+                </form>
+                <div class=" social-sign-in">
+                    <p class="social-p">Sign in with</p>
+                    <a href="{% provider_login_url 'facebook' method='js_sdk' %}"><i class="fa fa-facebook-square fay mr-3 ml-2"></i></a>
+                    <a href="{% provider_login_url 'google' %}"><i class="fa fa-google fay"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6" style="background-color:#1F0541;  ">
+                <h3 class="sign-h3" style="color:#fff;">Sign up</h3>
+                <div class="text-light social-sign-in mb-5">
+                    <a href="{% url 'signup' %}" class="btn btn-light btn-lg mt-5 mb-5 form-btn">Sign up Creating Username and password</a><br/>
+                    <p>Sign up and login using</p>
+                    <a href="{% provider_login_url 'facebook' method='js_sdk' %}"><i class="fa fa-facebook-square fay mr-3 ml-2"></i></a>
+                    <a href=""><i class="fa fa-google fay"></i></a>
+                </div>
+            </div>
+        </div>
+    </section><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+{%endblock%}

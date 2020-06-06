@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="container a" style="color: #1F0541;">
+        <h3 class="mem-h3">Create a memorial website</h3>
+    </section>
+    <section class="container login" style="background-color: #1F0541; color: #fff;" >
+        <div class="row mb-5 contact-row justify-content-center">
+            <h4 class="pt-3">This memorial is for:</h4>
+            <div class="col-md-8 col-sm-12" style="color: #E6E0ED; ">
+                <form class="form-group sign-form-mem create-memo-form ">
+                    <div class="form-a">
+                        <label>First name </label>
+                        <input type="text" class="form-control" >
+                    </div>
+                    <div class="form-">
+                        <label>Middle name </label>
+                        <input type="text" class="form-control" >
+                    </div>
+                    <div class="form-">
+                        <label>Last name </label>
+                        <input type="text" class="form-control" >
+                    </div>
+                    <div class="  d-flex mt-4">
+                        <label class="mr-5">Gender:</label>
+                        <div class="">
+                            <input type="radio" name="gender" required>
+                            <label class="mr-5">Male</label>
+                        </div>
+                        <div class=" mb-3">
+                            <input type="radio" name="gender" required>
+                            <label class="">Female</label>
+                        </div>
+                    </div>
+                    <div class="form-">
+                        <label>Relationship with person </label>
+                        <select class="custom-select" required>
+                            <option value="">Please select relationship</option>
+                            <option value="Aunt">Aunt</option>
+                            <option value="Boyfriend">Boyfriend</option>
+                            <option value="Brother">Brother</option>
+                            <option value="Colleague">Colleague</option>
+                            <option value="Cousin">Cousin</option>
+                            <option value="Daughter">Daughter</option>
+                            <option value="Father">Father</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Girlfriend">Girlfriend</option>
+                            <option value="Granddaughter">Granddaughter</option>
+                            <option value="Grandfather">Grandfather</option>
+                            <option value="Grandmother">Grandmother</option>
+                            <option value="Grandson">Grandson</option>
+                            <option value="Husband">Husband</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Nephew">Nephew</option>
+                            <option value="Niece">Niece</option>
+                            <option value="Sister">Sister</option>
+                            <option value="Son">Son</option>
+                            <option value="Step Family">Step Family</option>
+                            <option value="Uncle">Uncle</option>
+                            <option value="Wife">Wife</option>
+                            <option value="Other" data-code="other">Other</option>
+                            <option value="No relationship">No relationship</option>
+                        </select>
+                    </div>
+                    <div class="form-">
+                        <label>Memorial web address </label>
+                        <div class="d-flex">
+                            <span>https://</span>
+                            <input type="text" class="form-control" > <span>.inourmindsforever.com</span>
+                        </div>
+                    </div>
+                    <div class="privacy-op mt-5">
+                        <h6>Privacy Options:</h6>
+                        <p>Would you like to share your memorial with others, or keep it private?<span class="" style="color: #80788B; font-size:small">(This can be changed later.)</span></p>
+                    </div>
+                    <div class="form- d-flex">
+                        <input type="checkbox" class="mr-2 mt-2" >
+                        <label> Visible only to me. This option allows for maximum privacy. </label>
+                    </div>
+                    <div class="form- d-flex">
+                        <input type="checkbox" class="mr-3 mt-3" >
+                        <label> All visitors can view and contribute. <br>
+                            <span class="" style="color: #80788B; font-size: small;">Recommended for most websites. This option facilitates collaboration.</span>
+                        </label>
+                    </div>
+                    <div class="text-right">
+                        <input type="checkbox" class="mr-2 mt-2" >
+                        <label  style="color: #80788B;" class="mr-4">I accept <a href="terms.html">Terms of Use</a> </label>
+                        <!-- <button class="btn  btn mt-5 mb-5 form-btn" style="background-color: #E6E0ED; color:  #1F0541;" >Submit</button> -->
+                        <a href="login.html" class="btn  btn mt-5 mb-5 form-btn" style="background-color: #E6E0ED; color:  #1F0541;" >Submit</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

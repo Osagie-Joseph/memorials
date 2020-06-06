@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Register a username and password{% endblock %}
+{% load socialaccount %} {% providers_media_js %}
+
+{% block content %}
+    <section class="container" style="color: #1F0541;">
+        <div class="row mb-5">
+            <div class="col-md-12" style="background-color:#1F0541;  ">
+                <h3 class="sign-h3" style="color:#fff;">Sign up</h3>
+                    <form class="form-group sign-form" method="post" style="color:#fff;">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-light btn-lg mt-5 mb-5 form-btn" type="submit" style="color: #1F0541;">Sign up</button>
+                    </form>
+                <div class="text-light social-sign-in mb-5">
+                    <p>Sign up with</p>
+                        <a href="{% provider_login_url 'facebook' method='js_sdk' %}"><i class="fa fa-facebook-square fay mr-3 ml-2"></i></a>
+                    <a href="{% provider_login_url 'google' %}"><i class="fa fa-google fay"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+{%endblock%}

@@ -1,0 +1,107 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/carousel.css"> -->
+      <!-- If else statment checking if there is title from the backend -->
+    {% if title %}<title>{{ title }}</title>{% else %}<title>InOurMindsForever</title>{% endif %}
+  </head>
+  <body class="">
+  <!--Head section-->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a href="{% url 'home' %}">  <img class="navbar-brand" src="{% static 'img/logo.jpeg' %}" width="105px" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav justify-content-center mx-auto">
+            <li class="nav-item "><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item "><a class="nav-link" href="{% url 'about' %}">About us</a></li>
+            <li class="nav-item dropdown">
+              <!--TODO you need to retify this two id cant be in single html file5-->
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Memorials</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'memorial' %}">Browse memorials</a>
+                <a class="dropdown-item" href="{% url 'create' %}">Create memorials</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'plan' %}">Plans</a></li>
+            <li class="nav-item"><a class="nav-link" href="">Testimonials</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'how' %}">How it works</a>
+                <a class="dropdown-item" href="{% url 'about' %}">FAQs</a>
+                <a class="dropdown-item" href="{% url 'contact' %}">Contact us</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav justify-content-end ">
+            <li><a class="nav-link" data-toggle="tooltip" data-placement="bottom" title="Search Memorials by their last names" href="#"><i class="fa fa-search mr-2"></i></a></li>
+              <li><a class="nav-link" href="{% url 'login' %}"><i class="fa fa-lock mr-2"></i>Sign in</a></li>
+            <li><a class="nav-link btn btn-primary text-light" href="#"><i class="fa fa-facebook mr-2"></i>Share</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header><br/><br/>
+  <!--head section end-->
+  <!-- Django code to recognize and entend to the other html pages following DRY principle -->
+    {% block content %}
+
+    {% endblock %}
+         <!-- Footer section -->
+    <footer  class=" text-light" style="background: #1c0b32;">
+      <div class="container">
+        <div class="row text-center pt-5">
+          <div class="col-lg-3 col-md-3 col-sm-12 mb-5">
+            <p class="">GETTING STARTED</p>
+            <!--TODO you need to ratify this a list item cant be alone is has to br in a ul or ol tag-->
+            <li class="list-unstyled"><a class="nav-link text-light" href="{% url 'memorial' %}">Browse Memorials</a></li>
+            <li class="list-unstyled"><a class="nav-link text-light" href="{% url 'create' %}">Create a Memorial</a></li>
+            <li class="list-unstyled"><a class="nav-link text-light" href="{% url 'how' %}">How It works</a></li>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12 mb-5">
+            <p>CONTACT US</p>
+            <p>support@inourmindsforever.com</p>
+            <p>+2348023016186</p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12 mb-5">
+            <p class="">LINKS</p>
+            <!--TODO you need to ratify this a list item cant be alone is has to br in a ul or ol tag-->
+            <li class=" list-unstyled"><a class="nav-link text-light" href="about.html">FAQs</a></li>
+            <li class="list-unstyled"><a class="nav-link text-light" href="terms.html">Terms & Conditions</a></li>
+            <li class="list-unstyled text-light"><a class="nav-link text-light" href="privacy.html">Privacy Policy</a></li>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12  ">
+            <div class="row ">
+              <div class="col-md col-sm-12">
+                <div class=" text-center submenu-linka d-flex justify-content-center" >
+                  <!--TODO you need to put links in all this icons-->
+                  <a href="" class="text-light text-decoration-none pb-3 pr-3"><i class="fa fa-facebook mr-3"></i></a>
+                  <a href="" class="text-light  text-decoration-none pb-3 pr-3"><i class="fa fa-twitter mr-3 "></i></a>
+                  <a href="" class="text-light  text-decoration-none pb-3"><i class="fa fa-instagram"></i></a>
+                </div>
+                <p class="">COPYRIGHT <span><script>document.write(new Date().getFullYear())</script></span> InOurMindsForever</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
